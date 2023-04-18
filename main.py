@@ -199,4 +199,4 @@ def auto_opentab_delay():
     threading.Thread(target=auto_update, name="self-upgrade", daemon=True).start()
     threading.Thread(target=follow_file, args=("gpt_log/chat_secrets.log",), name="log", daemon=True).start()
 # auto_opentab_delay()
-demo.queue(concurrency_count=CONCURRENT_COUNT).launch(server_name="0.0.0.0", server_port=PORT, auth=AUTHENTICATION,debug=True)
+demo.queue(concurrency_count=CONCURRENT_COUNT).launch(server_name="0.0.0.0", server_port=PORT)

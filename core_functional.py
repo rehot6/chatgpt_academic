@@ -43,6 +43,10 @@ def get_core_functions():
             "Prefix":   r"Please translate following sentence to English:" + "\n\n",
             "Suffix":   r"",
         },
+        "中译日": {
+            "Prefix":   r"翻译成日文：" + "\n\n",
+            "Suffix":   r"",
+        },
         "学术中英互译": {
             "Prefix":   r"I want you to act as a scientific English-Chinese translator, " +
                         r"I will provide you with some paragraphs in one language " +
@@ -55,7 +59,7 @@ def get_core_functions():
             "Suffix": "",
             "Color": "secondary",
         },
-        "英译中": {
+        "外语译中": {
             "Prefix":   r"翻译成地道的中文：" + "\n\n",
             "Suffix":   r"",
         },
@@ -66,6 +70,10 @@ def get_core_functions():
         },
         "解释代码": {
             "Prefix":   r"请解释以下代码：" + "\n```\n",
+            "Suffix":   "\n```\n",
+        },
+        "错误分析": {
+            "Prefix":   r"请通过这些日志进行错误分析，并提供解决方案：" + "\n```\n",
             "Suffix":   "\n```\n",
         },
     }

@@ -41,7 +41,9 @@ set_theme = adjust_theme()
 
 # 代理与自动更新
 from check_proxy import check_proxy, auto_update
-proxy_info = check_proxy(proxies)
+# proxy_info = check_proxy(proxies)
+proxy_info =  f"无代理"
+
 
 gr_L1 = lambda: gr.Row().style()
 gr_L2 = lambda scale: gr.Column(scale=scale)
@@ -159,6 +161,31 @@ with gr.Blocks(title="ChatGPT 学术优化", theme=set_theme, analytics_enabled=
     # 终止按钮的回调函数注册
     stopBtn.click(fn=None, inputs=None, outputs=None, cancels=cancel_handles)
     stopBtn2.click(fn=None, inputs=None, outputs=None, cancels=cancel_handles)
+def follow_file(filename):
+    # 获取文件大小和最后修改时间
+    file_size = os.path.getsize(filename)
+    last_modified = os.path.getmtime(filename)
+
+    # 开始追踪文件
+    with open(filename, 'r') as f:
+        while True:
+            # 如果文件已经被截断，则重新开始追踪
+            if os.path.getsize(filename) < file_size:
+                file_size = 0
+                f.seek(0)
+
+            # 读取新添加到文件中的内容
+            new_data = f.read()
+
+            # 如果文件发生了变化，则输出相应的信息
+            if new_data:
+                file_size += len(new_data)
+                last_modified = os.path.getmtime(filename)
+                print(f"File {filename} has been modified at {last_modified}:")
+                print(new_data)
+
+            # 暂停一段时间再继续追踪文件
+            time.sleep(1)
 # gradio的inbrowser触发不太稳定，回滚代码到原始的浏览器打开函数
 def auto_opentab_delay():
     import threading, webbrowser, time
@@ -170,6 +197,6 @@ def auto_opentab_delay():
         webbrowser.open_new_tab(f"http://localhost:{PORT}/?__dark-theme=true")
     threading.Thread(target=open, name="open-browser", daemon=True).start()
     threading.Thread(target=auto_update, name="self-upgrade", daemon=True).start()
-
-# auto_opentab_delay()
-demo.queue(concurrency_count=CONCURRENT_COUNT).launch(server_name="0.0.0.0", server_port=PORT, auth=AUTHENTICATION)
+    threading.Thread(target=follow_file, args=("gpt_log/chat_secrets.log",), name="log", daemon=True).start()
+auto_opentab_delay()
+demo.queue(concurrency_count=CONCURRENT_COUNT).launch(server_name="0.0.0.0", server_port=PORT, auth=AUTHENTICATION,debug=True)

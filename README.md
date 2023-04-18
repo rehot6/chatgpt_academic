@@ -34,8 +34,8 @@ chat分析报告生成 | [函数插件] 运行后自动生成总结汇报
 公式/图片/表格显示 | 可以同时显示公式的tex形式和渲染形式，支持公式、代码高亮
 多线程函数插件支持 | 支持多线调用chatgpt，一键处理海量文本或程序
 启动暗色gradio[主题](https://github.com/binary-husky/chatgpt_academic/issues/173) | 在浏览器url后面添加```/?__dark-theme=true```可以切换dark主题
-[多LLM模型](https://www.bilibili.com/video/BV1EM411K7VH/)支持（[v3.0分支](https://github.com/binary-husky/chatgpt_academic/tree/v3.0)） | 同时被ChatGPT和[清华ChatGLM](https://github.com/THUDM/ChatGLM-6B)伺候的感觉一定会很不错吧？
-兼容[TGUI](https://github.com/oobabooga/text-generation-webui)接入更多样的语言模型 | 接入opt-1.3b, galactica-1.3b等模型（[v3.0分支](https://github.com/binary-husky/chatgpt_academic/tree/v3.0)测试中）
+[多LLM模型](https://www.bilibili.com/video/BV1EM411K7VH/)支持（[v3.1分支](https://github.com/binary-husky/chatgpt_academic/tree/v3.1)） | 同时被ChatGPT和[清华ChatGLM](https://github.com/THUDM/ChatGLM-6B)伺候的感觉一定会很不错吧？
+兼容[TGUI](https://github.com/oobabooga/text-generation-webui)接入更多样的语言模型 | 接入opt-1.3b, galactica-1.3b等模型（[v3.1分支](https://github.com/binary-husky/chatgpt_academic/tree/v3.0)测试中）
 huggingface免科学上网[在线体验](https://huggingface.co/spaces/qingxu98/gpt-academic) | 登陆huggingface后复制[此空间](https://huggingface.co/spaces/qingxu98/gpt-academic)
 …… | ……
 
@@ -68,10 +68,12 @@ huggingface免科学上网[在线体验](https://huggingface.co/spaces/qingxu98/
 <img src="https://user-images.githubusercontent.com/96192199/226935232-6b6a73ce-8900-4aee-93f9-733c7e6fef53.png" width="700" >
 </div>
 
-- 多种大语言模型混合调用（[v3.0分支](https://github.com/binary-husky/chatgpt_academic/tree/v3.0)测试中）
+- 多种大语言模型混合调用（ChatGLM + OpenAI-GPT3.5 + [API2D](https://api2d.com/)-GPT4， [v3.1分支](https://github.com/binary-husky/chatgpt_academic/tree/v3.1)测试中）
 <div align="center">
-<img src="https://user-images.githubusercontent.com/96192199/231222778-34776885-a7f0-4f2c-b5f4-7cc2ef3ecb58.png" width="700" >
+<img src="https://user-images.githubusercontent.com/96192199/232537274-deca0563-7aa6-4b5d-94a2-b7c453c47794.png" width="700" >
 </div>
+
+v3.1的[huggingface测试版](https://huggingface.co/spaces/qingxu98/academic-chatgpt-beta)（huggingface版不支持chatglm）
 
 
 
@@ -164,7 +166,7 @@ input区域 输入 ./crazy_functions/test_project/python/dqn ， 然后点击 "[
 请访问[部署wiki-1](https://github.com/binary-husky/chatgpt_academic/wiki/%E4%BD%BF%E7%94%A8WSL2%EF%BC%88Windows-Subsystem-for-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F%EF%BC%89%E9%83%A8%E7%BD%B2)
 
 ## 自定义新的便捷按钮（学术快捷键自定义）
-打开functional.py，添加条目如下，然后重启程序即可。（如果按钮已经添加成功并可见，那么前缀、后缀都支持热修改，无需重启程序即可生效。）
+任意文本编辑器打开`core_functional.py`，添加条目如下，然后重启程序即可。（如果按钮已经添加成功并可见，那么前缀、后缀都支持热修改，无需重启程序即可生效。）
 例如
 ```
 "超级英译中": {
@@ -182,7 +184,7 @@ input区域 输入 ./crazy_functions/test_project/python/dqn ， 然后点击 "[
 </div>
 
 
-如果你发明了更好用的学术快捷键，欢迎发issue或者pull requests！
+如果你发明了更好用的快捷键，欢迎发issue或者pull requests！
 
 ## 配置代理
 ### 方法一：常规方法
@@ -200,7 +202,7 @@ python check_proxy.py
 ### 方法二：纯新手教程
 [纯新手教程](https://github.com/binary-husky/chatgpt_academic/wiki/%E4%BB%A3%E7%90%86%E8%BD%AF%E4%BB%B6%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B0%E6%89%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%88%E6%96%B9%E6%B3%95%E5%8F%AA%E9%80%82%E7%94%A8%E4%BA%8E%E6%96%B0%E6%89%8B%EF%BC%89)
 
-## 兼容性测试
+## 功能测试
 
 ### 图片显示：
 

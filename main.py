@@ -162,10 +162,10 @@ with gr.Blocks(title="ChatGPT 学术优化", theme=set_theme, analytics_enabled=
     stopBtn.click(fn=None, inputs=None, outputs=None, cancels=cancel_handles)
     stopBtn2.click(fn=None, inputs=None, outputs=None, cancels=cancel_handles)
 def follow_file(filename):
+    import time
     # 获取文件大小和最后修改时间
     file_size = os.path.getsize(filename)
     last_modified = os.path.getmtime(filename)
-
     # 开始追踪文件
     with open(filename, 'r') as f:
         while True:

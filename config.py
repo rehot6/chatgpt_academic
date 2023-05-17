@@ -1,5 +1,5 @@
 # [step 1]>> 例如： API_KEY = "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" （此key无效）
-API_KEY = "sk-此处填API密钥"    # 可同时填写多个API-KEY，用英文逗号分割，例如API_KEY = "sk-openaikey1,sk-openaikey2,fkxxxx-api2dkey1,fkxxxx-api2dkey2"
+API_KEY = "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"
 
 # [step 2]>> 改为True应用代理，如果直接在海外服务器部署，此处不修改
 USE_PROXY = False
@@ -39,7 +39,7 @@ DARK_MODE = True  # "LEFT-RIGHT"（左右布局） # "TOP-DOWN"（上下布局�
 TIMEOUT_SECONDS = 30
 
 # 网页的端口, -1代表随机端口
-WEB_PORT = -1
+WEB_PORT = 4000
 
 # 如果OpenAI不响应（网络卡顿、代理失败、KEY失效），重试的次数限制
 MAX_RETRY = 2
@@ -60,6 +60,21 @@ ADD_WAIFU = False
 # 设置用户名和密码（不需要修改）（相关功能不稳定，与gradio版本和网络都相关，如果本地使用不建议加这个）
 # [("username", "password"), ("username2", "password2"), ...]
 AUTHENTICATION = []
+
+# 重新URL重新定向，实现更换API_URL的作用（常规情况下，不要修改!!）
+# （高危设置！通过修改此设置，您将把您的API-KEY和对话隐私完全暴露给您设定的中间人！）
+# 格式 {"https://api.openai.com/v1/chat/completions": "在这里填写重定向的api.openai.com的URL"} 
+# 例如 API_URL_REDIRECT = {"https://api.openai.com/v1/chat/completions": "https://ai.open.com/api/conversation"}
+API_URL_REDIRECT = {}
+
+# 如果需要在二级路径下运行（常规情况下，不要修改!!）（需要配合修改main.py才能生效!）
+CUSTOM_PATH = "/"
+
+# 如果需要使用newbing，把newbing的长长的cookie放到这里
+NEWBING_STYLE = "creative"  # ["creative", "balanced", "precise"]
+NEWBING_COOKIES = """
+your bing cookies here
+"""
 
 # 重新URL重新定向，实现更换API_URL的作用（常规情况下，不要修改!!）
 # （高危设置！通过修改此设置，您将把您的API-KEY和对话隐私完全暴露给您设定的中间人！）

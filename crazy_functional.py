@@ -55,9 +55,8 @@ def get_crazy_functions():
             "AsButton": False,  # 加入下拉菜单中
             "Function": HotReload(解析一个C项目的头文件)
         },
-        "解析整个C++项目（.cpp/.hpp/.c/.h）": {
+        "解析整个C++项目": {
             "Color": "stop",    # 按钮颜色
-            "AsButton": False,  # 加入下拉菜单中
             "Function": HotReload(解析一个C项目)
         },
         "解析整个Go项目": {
@@ -113,6 +112,7 @@ def get_crazy_functions():
         },
         "[插件demo] 历史上的今天": {
             # HotReload 的意思是热更新，修改函数插件代码后，不需要重启程序，代码直接生效
+            "AsButton": False,  # 加入下拉菜单中
             "Function": HotReload(高阶功能模板函数)
         },
 
@@ -159,7 +159,6 @@ def get_crazy_functions():
         "理解PDF文档内容 （模仿ChatPDF）": {
             # HotReload 的意思是热更新，修改函数插件代码后，不需要重启程序，代码直接生效
             "Color": "stop",
-            "AsButton": False,  # 加入下拉菜单中
             "Function": HotReload(理解PDF文档内容标准文件输入)
         },
         "[测试功能] 英文Latex项目全文润色（输入路径或上传压缩包）": {
